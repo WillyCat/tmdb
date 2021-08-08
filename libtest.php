@@ -119,4 +119,16 @@ try
 } catch (Exception $e) {
 	echo $e -> getMessage() . "\n";
 }
+
+$tmdb_id = 118633;
+echo $sep . "\n";
+echo "tmdbPerson" . "\n";
+try
+{
+	$f = new  tmdbPerson ($tmdb_id);
+	$r = $f -> getResponse();
+	print_r ($r);
+} catch (Exception $e) {
+	echo $e -> getMessage() . "\n";
+}
 ?>
