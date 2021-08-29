@@ -23,7 +23,7 @@ class tmdbSearchMovie extends tmdbRequest {
 		parent::__construct ('search/movie', $parms);
 
 		for ($i = 0; $i < count ($this -> response -> results); $i++)
-			$this -> response -> results[$i] -> poster_url = 'http://image.tmdb.org/t/p/original' . $this -> response -> results[$i] -> poster_path . '?api_key=' . tmdb::$api_key;
+			$this -> response -> results[$i] -> poster_url = 'http://image.tmdb.org/t/p/original' . $this -> response -> results[$i] -> poster_path . '?api_key=' . $this->api_key;
 
 	}
 }

@@ -27,13 +27,14 @@ proxy(string $action, string $path, ?string $value = ''): ?string
 }
 
 $movie_id = 4723;
+$person_id = 118633;
 $sep = '-------------------------------------------';
 
 echo $sep . "\n";
-echo "tmdbMovieAlternativeTitles" . "\n";
+echo "tmdbExternalIds" . "\n";
 try
 {
-	$f = new  tmdbMovieAlternativeTitles ($movie_id, 'proxy');
+	$f = new  tmdbExternalIds ($person_id, 'proxy');
 	$r = $f -> getResponse();
 	print_r ($r);
 } catch (Exception $e) {
@@ -50,8 +51,6 @@ try
 } catch (Exception $e) {
 	echo $e -> getMessage() . "\n";
 }
-
-die();
 
 echo $sep . "\n";
 echo "tmdbFind" . "\n";
@@ -120,12 +119,11 @@ try
 	echo $e -> getMessage() . "\n";
 }
 
-$tmdb_id = 118633;
 echo $sep . "\n";
 echo "tmdbPerson" . "\n";
 try
 {
-	$f = new  tmdbPerson ($tmdb_id);
+	$f = new  tmdbPerson ($person_id);
 	$r = $f -> getResponse();
 	print_r ($r);
 } catch (Exception $e) {

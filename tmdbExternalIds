@@ -1,9 +1,0 @@
-<?php
-class tmdbExternalIds extends tmdbRequest {
-        public function
-        __construct(string $movie_id)
-        {
-                parent::__construct ('movie/'.$movie_id.'/external_ids');
-        }
-}
-?>

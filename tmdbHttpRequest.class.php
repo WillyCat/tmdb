@@ -1,6 +1,8 @@
 <?php
 
-class tmdbHttpRequest {
+require_once 'tmdb.class.php';
+
+class tmdbHttpRequest extends tmdb {
 	public int $status;
 	public ?string $body;
 	public Object $response;
@@ -8,14 +10,18 @@ class tmdbHttpRequest {
 	public function
 	__construct(string $path)
 	{
+		parent::__construct('key');
+
 //echo 'path: ' . $path . "\n";
-                $url = tmdb::$endpoint . '/'.$path;
+                $url = $this -> endpoint . '/'.$path;
 //echo $url . "\n";
 		if (strpos ($url, '?'))
 			$url .= '&';
 		else
 			$url .= '?';
-		$url .= 'api_key=' . tmdb::$api_key;
+
+		
+		$url .= 'api_key=' . $this -> api_key;
 		$h = new tinyHttp ($url, tinyHttp::METHOD_GET);
 
 		$r = $h -> send();

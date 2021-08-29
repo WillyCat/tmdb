@@ -3,12 +3,15 @@
 require_once 'tinyHttp.class.php';
 
 class tmdb {
-	static string $api_key = '35e920f1275aa3e80df17c162004bc47';
-	static string $endpoint = 'https://api.themoviedb.org/3';
+	var $api_key;
+	var $endpoint = 'https://api.themoviedb.org/3';
 
 	public function
-	__construct()
+	__construct(string $keyfile)
 	{
+		if (!file_exists ($keyfile))
+			throw new Exception ('keyfile not found');
+		$this -> api_key = trim(file_get_contents ($keyfile));
 	}
 
 	static function
@@ -20,7 +23,7 @@ class tmdb {
 	static function
 	getVersion(): string
 	{
-		return '0.1';
+		return '0.2';
 	}
 }
 
