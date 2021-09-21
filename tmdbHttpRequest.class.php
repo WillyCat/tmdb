@@ -1,7 +1,5 @@
 <?php
 
-require_once 'tmdb.class.php';
-
 class tmdbHttpRequest extends tmdb {
 	public int $status;
 	public ?string $body;

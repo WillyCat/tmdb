@@ -27,7 +27,8 @@ proxy(string $action, string $path, ?string $value = ''): ?string
 }
 
 $movie_id = 4723;
-$person_id = 118633;
+$person_id = 88721;
+$person_id = 2112755;
 $sep = '-------------------------------------------';
 
 echo $sep . "\n";
@@ -113,6 +114,17 @@ echo "tmdbMovieCredits" . "\n";
 try
 {
 	$f = new  tmdbMovieCredits ($movie_id);
+	$r = $f -> getResponse();
+	print_r ($r);
+} catch (Exception $e) {
+	echo $e -> getMessage() . "\n";
+}
+
+echo $sep . "\n";
+echo "tmdbPersonExternalIDs" . "\n";
+try
+{
+	$f = new  tmdbPersonExternalIDs ($person_id);
 	$r = $f -> getResponse();
 	print_r ($r);
 } catch (Exception $e) {
