@@ -1,6 +1,8 @@
 <?php
 
 class tmdbRequest extends tmdbHttpRequest {
+	public $source;
+
 	public function
 	__construct (string $path, array $parms = [ ], ?callable $proxy = null)
 	{
@@ -19,10 +21,14 @@ class tmdbRequest extends tmdbHttpRequest {
 			if ($this -> body == null)
 			{
 				parent::__construct ($path);
+				$this -> source = 'request';
 				$proxy('store', $path, $this -> body);
 			}
 			else
+			{
+				$this -> source = 'db';
 				$this -> response = json_decode ($this -> body);
+			}
 		}
 	}
 
