@@ -1,6 +1,6 @@
 <?php
 
-require_once 'tinyHttp.class.php';
+//require_once 'tinyHttp.class.php';
 
 class tmdb {
 	var $api_key;
@@ -10,7 +10,7 @@ class tmdb {
 	__construct(string $keyfile)
 	{
 		if (!file_exists ($keyfile))
-			throw new Exception ('keyfile not found');
+			throw new Exception ('keyfile not found: ' . $keyfile);
 		$this -> api_key = trim(file_get_contents ($keyfile));
 	}
 

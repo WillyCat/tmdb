@@ -6,9 +6,12 @@ class tmdbHttpRequest extends tmdb {
 	public Object $response;
 
 	public function
-	__construct(string $path)
+	__construct(string $path, string $keyfile = '')
 	{
-		parent::__construct('key');
+		if ($keyfile == '')
+			$keyfile = 'key';
+
+		parent::__construct($keyfile);
 
 //echo 'path: ' . $path . "\n";
                 $url = $this -> endpoint . '/'.$path;
